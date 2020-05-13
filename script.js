@@ -1,5 +1,7 @@
-function buildQuiz(){}
-function showResults(){}
+//function buildQuiz(){}
+function showResults(){
+    alert('Hello Skye!')
+}
 
 // When user loads the page, they see title, description,and a start quiz button
 // They're going to click "start quiz"
@@ -50,51 +52,116 @@ const submitButton = document.getElementById("submit");
     
 
 //display quiz right away
-buildQuiz();
+//buildQuiz();
 
 //on Submit, show results
-submitButton.addEventListener("click", showResults);
 
 
-    //display the list of questions on the page
-    function buildQuiz(){
-        // variable to store the HTML output
-        const output = [];
+//display the list of questions on the page
+function buildQuiz(){
 
-        // for each question 
-        myQuestions.forEach(
-            (currentQuestion, questionNumber) => {
+    //make the clickMe button disappear
 
-                //variable to store the list of possible answers
-                const answers = [];
-
-                //and for each available answer
-                for(letter in currentQuestion.answers){
-
-                    //add an HTML radio button
-                    answers.push(
-                        <label>
-                            <input type="radio" name="question"${questionNumber}" value="${letter}"/>
-                            ${letter} :
-                            ${currentQuestion.answers[letter]}
-                            </label>
+    // variable to store the HTML output
+    const output = [];
+    
+    // for each question 
+    myQuestions.forEach(
+        (currentQuestion, questionNumber) => {
+            console.log(currentQuestion);
+            
+            //variable to store the list of possible answers
+            const answers = [];
+            
+            //and for each available answer
+            for(letter in currentQuestion.answers){
+                
+                //add an HTML radio button
+                answers.push(
+                    `<label>
+                    <input type="radio" name="question"${questionNumber}" value="${letter}"/>
+                    ${letter} :
+                    ${currentQuestion.answers[letter]}
+                    </label>`
                     );
                 }
                 // add this question and its answers to the output
                 output.push(
-                    <div class="question">${currentQuestion.question}</div>
-                    <div class="answers">${answers.join("")}</div>
+                    `<div class="question">${currentQuestion.question}</div>
+                    <div class="answers">${answers.join("")}</div>`
+                    );
+                }
                 );
+                
+                //finally combine our output list into one string of HTML and put it on the page
+                quizContainer.innerHTML = output.join("");
             }
-        );
+            
+            
+                //function showAnswers() {}
+            
+                    //make questions disappear
+            
+                    //show  score
+                    //show correct Answers
+                    //show incorrect Answers
+            
+                    //ask if the y want to play again
+                    // make the clickMe button appear
+            
+                    //make the show Answer disappear
+            
+                
 
-        //finally combine our output list into one string of HTML and put it on the page
-        quizContainer.innerHTML = output.join("");
-    }
+    submitButton.addEventListener("click", buildQuiz);
 
     //start building the HTML for each question
     // we'll need to loops through each question
 
     myQuestions.forEach((currentQuestion, questionNumber) => {
-        //the code we want to run for each question goes here
+        });
+
+
+
+function showResults(){
+
+    //gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll(".answers");
+
+    //keep track of users answers
+    let numCorrect = 0;
+
+    //for each question
+    myQuestions.forEach((currentQuestion, questionNumber) => {
+
+        //find selected answer
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=questions${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+        //if answer is correct
+        if(unserAnswer === currentQuestion.correctAnswer){
+            //add to the number of correct answers
+            numCorrect++;
+
+            //color the answers green
+            answerContainers[questionNumber].style.color = "lightgreen";
+        }
+        //if answer is wrong or blank
+        else{
+            //color the answers red
+            answerContainers[questionNumber].style.color = "red";
+        }
     });
+
+    //show number of correct answers out of the total
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+}
+
+//gather answer container for our quiz
+const answerContainers = quizContainer.querySelectorAll(".answers");
+
+//keep track of users answers
+let numCorrect = 0;
+
+
