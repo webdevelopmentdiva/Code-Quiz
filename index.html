@@ -1,33 +1,36 @@
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>Skyes Quiz</title>
+  </head>
 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-   <title>Skyes Quiz</title>
-</head>
-
-<body>
-
-   <h1 class="text-center">Welcome to My Quiz</h1>
-   <p>Start the quiz game by clicking on Start Time.</p>
-   <p>Now you have 2 minutes to answer all my questions!</p>
-   <p>Good Luck!</p>
-   <button id="time"> Start Time </button>
-
-
-   <!-- <button type="button" class="btn btn-info text-center" id="startBtn">Start</button> -->
-
-   <div class="quiz-container">
-      <div id="quiz"></div>
-   </div>
-   <button class="npQuestion" id="previous">Previous Question</button>
-   <button class="npQuestion" id="next">Next Question</button>
-   <button class="npQuestion" id="submit">Submit Quiz</button>
-   <div id="results"></div>
-</body>
-<script src="script.js"></script>
-
+  <body class="container border text-light text-center bg-info">
+    <div class="bg-secondary">
+      <div class="welcome2Quiz">
+        <h1>Welcome to My Quiz</h1>
+        <p>Start the quiz game by clicking on Start Time.</p>
+        <p>Now you have 2 minutes to answer all my questions!</p>
+        <p>Good Luck!</p>
+        <button id="time">Start Time</button>
+      </div>
+      <!-- <button type="button" class="btn btn-info text-center" id="startBtn">Start</button> -->
+      <br />
+      <div class="quiz-container">
+        <div id="quiz"></div>
+      </div>
+      <button class="npQuestion" id="previous">Previous Question</button>
+      <button class="npQuestion" id="next">Next Question</button>
+      <button class="npQuestion" id="submit">Submit Quiz</button>
+      <div id="results"></div>
+    </div>
+  </body>
+  <script src="script.js"></script>
 </html>
